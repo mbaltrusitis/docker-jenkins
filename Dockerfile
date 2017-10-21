@@ -13,7 +13,7 @@ RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt \
     && mv docker/docker /usr/bin/docker \
     && chmod +x /usr/bin/docker \
     && rm -rf docker/ \
-    && groupadd docker \
+    && groupadd --gid 999 docker \
     && usermod -aG staff,docker jenkins \
     # add ansible for continuous integration/deploy
     && apt-get update && apt-get install -yq python python-pip \
