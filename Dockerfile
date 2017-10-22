@@ -16,7 +16,7 @@ RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt \
     && groupadd --gid 999 docker \
     && usermod -aG staff,docker jenkins \
     # add ansible for continuous integration/deploy
-    && apt-get update && apt-get install -yq python python-pip \
+    && apt-get update && apt-get install --fix-missing -yq rsync python python-pip \
     && pip install ansible
 
 USER jenkins
